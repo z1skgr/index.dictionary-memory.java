@@ -2,9 +2,9 @@
  File Process - Edit Files - Intermediate 
 
 # Description of the project
-a program that accepts one or more text files and creates a data structure on the disk that answers questions such as **'find texts containing the word 'statue''** or any other word. 
+A program that accepts one or more text files and creates a data structure on the disk that answers questions such as **'find texts containing the word 'statue''** or any other word. 
 
-# Construction of the data structure in Central Memory (
+# Construction of the data structure in Central Memory
 The program constructs the following file structure on disk. The file structure consists of the "Dictionary" and the "Index". The file structure in the shape indicates that the word "Infinite" of the Dictionary exists on the 1st page of the Index. There is the information that the word exists in file a.txt in position 2bytes from the the beginning of the file and in the b.txt to the 4bytes location from the beginning of the file.
 
 # Construction of File Structure 
