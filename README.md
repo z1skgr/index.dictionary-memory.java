@@ -10,7 +10,6 @@ __Data Stream
 graph TD;
     A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|1|B[(a.txt,2) <br>(b.txt,2) <br>];
     A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|2|C[(c.txt,3) <br>(a.txt,5) <br>];
-    ...
     A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|43|D[(c.txt,3) <br>(d.txt,40) <br>];
 
 ```
