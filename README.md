@@ -30,7 +30,9 @@ graph TD;
 * Construction of archive structure 
     * Sequence of pages(128 bytes) of pair string - integer
 * Search the data structure
-    * Binary search to an archive and calculation of costs per page[^1][^3] and disk[^2]. 
+    * Binary search to an archive and calculation of costs per page[^1][^3] and disk[^2]. <br>
+
+
 The dictionary contains all the words in the texts accompanied by a number. Each word points to the index. <br>
 The index is a file whose each page (128 bytes) stores pairs of the format __(filename – bytes locations from the beginning of the text)__. The pages link to each other when we have redundancy in a word.
 
