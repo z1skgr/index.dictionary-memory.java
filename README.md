@@ -10,10 +10,10 @@ __Data Stream__
 
 ```mermaid
 graph TD;
-    A[Dictionary]-->|1|B[a.txt 2 b.txt 4];
-    A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|1|B[a.txt 2 b.txt 4];
-    A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|2|C[c.txt 3 a.txt 5];
-    A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|43|D[c.txt 3 d.txt 40];
+
+    A[Dictionary <br> Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|1|B[a.txt 2 b.txt 4];
+    A[Dictionary <br> Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|2|C[c.txt 3 a.txt 5];
+    A[Dictionary <br> Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|43|D[c.txt 3 d.txt 40];
 
 ```
 
