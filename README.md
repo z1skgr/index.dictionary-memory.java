@@ -22,7 +22,7 @@ __Data Stream__
 * Construction of archive structure 
     * Sequence of pages(128 bytes) of pair string - integer
 * Search the data structure
-    * Binary search to an archive and calculation of costs per page[^1][^3] and disk[^2]. <br>
+    * Binary search[^1] to the dictionary and calculation of costs per page[^2][^3] and disk[^4] <br>
 
 
 ```mermaid
@@ -35,11 +35,13 @@ graph TD;
 ```
 
 
-The dictionary contains all the words in the texts accompanied by a number. Each word points to the index. The number specifies the page in the index that corresponds to the word. <br>
+The dictionary contains all the words in the texts accompanied by a number. Each word points to the index. Each page in the dictionaru contains 5 pairs.
+The number specifies the page in the index that corresponds to the word. <br>
 
 The graph shows the connection between the files. In the graph, we see that the word infinite is in the file a.txt in position 2bytes from the beginning of the file.
 
-The index is a file whose page (128 bytes) stores pairs of the format __(filename – bytes locations from the beginning of the text)__. The pages link to each other when we have redundancy in a word. <br>
+The index is a file whose page (128 bytes) stores pairs of the format __(filename – bytes locations from the beginning of the text)__. Each page in the index contains 4 pairs.
+The pages link to each other when we have redundancy in a word. <br>
 
 ```mermaid
 graph TD;
@@ -51,18 +53,20 @@ graph TD;
 ```
 
 ## Technologies Used
-Java Integrated Development Environment (IDE)
+Java Integrated Development Environment (Eclipse IDE)
 
 
 
 ## Setup
 To run this project, import project to IDE workshop.
 Project contains samples of .txt files.
+The files have to follow the format that mention in [General Info](#general-information).
 
 ## Acknowledgements
 - This project was created for the requirements of the lesson Data Structures.
 
 
-[^1]: Search inside the page does not count disk access.
+[^3]: Search inside the page does not count disk access.
 [^2]: Read page costs one disk access.
-[^3]: Every reading page in the index also costs an access to the disk. 
+[^4]: Every reading page in the index also costs an access to the disk. 
+[^1]: http://interactivepython.org/runestone/static/pythonds/SortSearch/TheBinarySearch.html
