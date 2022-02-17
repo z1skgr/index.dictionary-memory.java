@@ -8,13 +8,11 @@ __Data Stream
 
 ```mermaid
 graph TD;
-    A[A 2 <br> L 3 <br>]-->|3|B[1-B];
-    A-->|5|C[2-C];
-    A-->|1|D[3-D];
-    C-->|2|E[4-E];
-    C-->|4|F[5-F];
-    D-->|3|G[6-G];
-    D-->|8|H[7-H];
+    A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|1|B[(a.txt,2) <br>(b.txt,2) <br>];
+    A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|2|C[(c.txt,3) <br>(a.txt,5) <br>];
+    ...
+    A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|43|C[(c.txt,3) <br>(d.txt,40) <br>];
+
 ```
 
 ## Table of contents
