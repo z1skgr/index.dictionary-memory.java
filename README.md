@@ -12,10 +12,16 @@ answers specific questions related to the words.
 * [Acknowledgements](#acknowledgements)
 
 ## General Information
+A program that accepts one or more text files and builds file structure on the disk. The file structure
+follows
+* Index
+* Dictionary
+
+The dictionary contains all the words in the texts
 
 
 ## Technologies Used
-C Integrated Development Environment (IDE)
+Java Integrated Development Environment (IDE)
 
 ## Screenshots
 
