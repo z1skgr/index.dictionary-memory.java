@@ -1,6 +1,21 @@
 # File Processing
 > A program that accepts one or more text files and creates a data stream on the disk that
-answers specific questions related to the words.
+answers specific questions related to the words. 
+__Data Stream
+* Index
+* Dictionary
+
+
+```mermaid
+graph TD;
+    A[A 2 <br> L 3 <br>]-->|3|B[1-B];
+    A-->|5|C[2-C];
+    A-->|1|D[3-D];
+    C-->|2|E[4-E];
+    C-->|4|F[5-F];
+    D-->|3|G[6-G];
+    D-->|8|H[7-H];
+```
 
 ## Table of contents
 * [General Info](#general-information)
@@ -12,12 +27,9 @@ answers specific questions related to the words.
 * [Acknowledgements](#acknowledgements)
 
 ## General Information
-A program that accepts one or more text files and builds file structure on the disk. The file structure
-follows
-* Index
-* Dictionary
 
-The dictionary contains all the words in the texts
+
+The dictionary contains all the words in the texts accompanied by a number. Each word points to the Index.
 
 
 ## Technologies Used
