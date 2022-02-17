@@ -10,6 +10,7 @@ __Data Stream__
 
 ```mermaid
 graph TD;
+    A[Dictionary]-->|1|B[a.txt 2 b.txt 4];
     A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|1|B[a.txt 2 b.txt 4];
     A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|2|C[c.txt 3 a.txt 5];
     A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|43|D[c.txt 3 d.txt 40];
@@ -23,9 +24,9 @@ graph TD;
 * [Acknowledgements](#acknowledgements)
 
 ## General Information
-Τhe program performs the following operations
-* Construction of the data structure in the main Memory
-    * Structure of strings accompanied by numbers
+Τhe program performs the following operations:
+* Construction of the data structure in the main memory
+    * Structure of pairs of strings and number
 * Construction of archive structure 
     * Sequence of pages(128 bytes) of pair string - integer
 * Search the data structure
