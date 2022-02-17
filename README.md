@@ -8,7 +8,7 @@ __Data Stream
 
 ```mermaid
 graph TD;
-    A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|1|B[(a.txt,2) <br>(b.txt,2) <br>];
+    A[Statue 2 <br> Infinite 1 <br> Morning 30 <br> ... <br>]-->|1|B[(a.txt,2) <br>(b.txt,2)];
 
 ```
 
