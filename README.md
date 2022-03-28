@@ -35,12 +35,12 @@ graph TD;
 ```
 
 
-The dictionary contains all the words in the texts accompanied by a number. Each word points to the index. Each page in the dictionaru contains 5 pairs.
+The dictionary contains all the words in the texts accompanied by a number. Each word points to the index. Each page in the dictionary contains 5 pairs.
 The number specifies the page in the index that corresponds to the word. <br>
 
 The graph shows the connection between the files. In the graph, we see that the word infinite is in the file a.txt in position 2bytes from the beginning of the file.
 
-The index is a file whose page (128 bytes) stores pairs of the format __(filename – bytes locations from the beginning of the text)__. Each page in the index contains 4 pairs.
+The index is a file whose page (128 bytes) stores pairs of the format __(filename – bytes, locations from the beginning of the text)__. Each page in the index contains 4 pairs.
 The pages link to each other when we have redundancy in a word. <br>
 
 ```mermaid
@@ -60,7 +60,7 @@ Java Integrated Development Environment (Eclipse IDE)
 ## Setup
 To run this project, import project to IDE workshop.
 Project contains samples of .txt files.
-The files have to follow the format that mention in [General Info](#general-information).
+The files have to follow the format that mentioned in [General Info](#general-information).
 
 ## Acknowledgements
 - This project was created for the requirements of the lesson Data Structures.
