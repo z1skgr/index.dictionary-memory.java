@@ -9,20 +9,20 @@ import java.util.Collections;
 import java.util.Vector;
 
 
-public class createDomes {
+public class createStructures {
 	File[] file;
-	Vector<String> lexiko=new Vector<String>();
-	ArrayList<String> eurethrio=new ArrayList<String>();
+	Vector<String> Dict=new Vector<String>();
+	ArrayList<String> Index=new ArrayList<String>();
 	ArrayList<wordItem> wordArray = new ArrayList<wordItem>();
 	
-	public createDomes(){
+	public createStructures(){
 	}
 	
 	public void readFiles()throws IOException,FileNotFoundException{	//Function that read files a number of files given from the user	
 		String userName=null;
 		int number=0;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	//Read the number of files that user wants
-		System.out.print("Arithmos arxeion: ");
+		System.out.print("Number of files: ");
 		String input = br.readLine();
 		try{
 			number = Integer.parseInt(input);	//Convert every character that user types to integer
@@ -51,17 +51,17 @@ public class createDomes {
 		
 	}
 	
-	public void createLexiko() throws IOException,ClassNotFoundException{//Function to create Dictionary in memory
+	public void createDict() throws IOException,ClassNotFoundException{//Function to create Dictionary in memory
 		readFiles();	//Call function to read every file that user wants
 		for(int i=0;i<file.length;i++){
 			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file[i])));//Variable to read words from the file
 			String line = null;	
-            int line_count=0;
+            //int line_count=0;
             int byte_count;
             int total_byte_count=0;
             int fromIndex;
             while( (line = br.readLine())!= null ){	//This loop means the selected file has remaining elements
-            	line_count++;
+            	//line_count++;
                 fromIndex=0;
                 String [] tokens = line.split(",\\s+|\\s*\\\"\\s*|\\s+|\\.\\s*|\\s*\\:\\s*|\\;|\\?|\\!|\\'|\\(|\\)|\\[|\\]");
                 for(int q=0;q<tokens.length;q++){
@@ -71,21 +71,21 @@ public class createDomes {
                     for (int j=0;j<tokens.length;j++){
                 	byte_count = line_rest.indexOf(tokens[j]);
                 	if (tokens[j].length()!=0){
-                		if(lexiko.isEmpty()){	//Empty dictionary means that we have no reason to check for duplicate words
-                		 	lexiko.add(tokens[j]);	//Insert word
+                		if(Dict.isEmpty()){	//Empty dictionary means that we have no reason to check for duplicate words
+                		 	Dict.add(tokens[j]);	//Insert word
                 		 	
                 		}
                 		int k=0;
                 		boolean flag=false;
-                		while(!flag && k<lexiko.size()){//Check if dictionary has duplicate elements
-                			if(lexiko.get(k).equalsIgnoreCase(tokens[j])){//flag=true means that dictionary contains the specific word
+                		while(!flag && k<Dict.size()){//Check if dictionary has duplicate elements
+                			if(Dict.get(k).equalsIgnoreCase(tokens[j])){//flag=true means that dictionary contains the specific word
                 				flag=true;
                 			}
                 			k++;         			
                 		}
                 		if(!flag)
-                 		   lexiko.add(tokens[j]);//Insert the word if it hasnt benn inserted again
-                		Collections.sort(lexiko);//Sort dictionary
+                 		   Dict.add(tokens[j]);//Insert the word if it has not been inserted again
+                		Collections.sort(Dict);//Sort dictionary
                 		fromIndex = fromIndex+byte_count+1+tokens[j].length();
                 		wordArray.add(new wordItem(tokens[j], file[i].getName(), total_byte_count + fromIndex));//Creation of an array type wordArray that contains every word , the file that we can find it, and the starting bytes
                 	}
@@ -93,63 +93,64 @@ public class createDomes {
 	                	   line_rest = line.substring(fromIndex);
                 }
                 total_byte_count += fromIndex;
-            }   
+            }
+            br.close();
 		}
-		System.out.println("\nEpithxhs dhmiourgia dictionary");
+		System.out.println("\nDictionary created successfully");
 	}
 	
-	public void createEurethrio(){	//Method that creates index using the array that stores items type wordArray(word,filename,startbytes) 
-		for(int i=0;i < lexiko.size(); i++)	//For every word in dictionary we try to find them in the wordArray array so that we can recall their start bytes and their filename
+	public void createIndex(){	//Method that creates index using the array that stores items type wordArray(word,filename,startbytes) 
+		for(int i=0;i < Dict.size(); i++)	//For every word in dictionary we try to find them in the wordArray array so that we can recall their start bytes and their filename
     	{
     		for (int k = 0; k<wordArray.size(); k++)
     		{
     			wordItem key = wordArray.get(k);
-    			if(key.getWord().equals(lexiko.get(i)))//if we find them we add them in the index
+    			if(key.getWord().equals(Dict.get(i)))//if we find them we add them in the index
     			{
     				String info=(key.getNameFile()+","+key.getStartByte());
     				//System.out.println(key.getWord()+", "+key.getNameFile()+","+key.getStartByte());
-    				eurethrio.add(info);
+    				Index.add(info);
     			}
     				
     		}
     	}
-		System.out.println("Epityxhs dhmiourgia index");
+		System.out.println("Index created successfully");
 	}
 	
 	
 	public void printWord(){//Method to print wordArray array
 		for(int i=0;i<wordArray.size();i++){
-			System.out.println(wordArray.get(i).getWord()+" "+wordArray.get(i).getNameFile()+" "+wordArray.get(i).getStartByte());
+			System.out.println(wordArray.get(i).getWord()+" "+ wordArray.get(i).getNameFile()+" "+ wordArray.get(i).getStartByte());
 		}
 		
 	}
 	
-	public void printLexiko(){//Method to print dictionary
-		for(int i=0;i<lexiko.size();i++){
-			System.out.println(lexiko.get(i));
+	public void printDict(){//Method to print dictionary
+		for(int i=0;i<Dict.size();i++){
+			System.out.println(Dict.get(i));
 		}
 	}
 	
-	public void printEurethrio(){//Method to prind index
-		for(int i=0;i<eurethrio.size();i++){
-			System.out.println(eurethrio.get(i));
+	public void printIndex(){//Method to print index
+		for(int i=0;i<Index.size();i++){
+			System.out.println(Index.get(i));
 		}
 	}
 
-	public Vector<String> getLexiko() {//Setters & getters
-		return lexiko;
+	public Vector<String> getDict() {//Setters & getters
+		return Dict;
 	}
 
-	public void setLexiko(Vector<String> lexiko) {
-		this.lexiko = lexiko;
+	public void setDict(Vector<String> Dict) {
+		this.Dict = Dict;
 	}
 
-	public ArrayList<String> getEurethrio() {
-		return eurethrio;
+	public ArrayList<String> getIndex() {
+		return Index;
 	}
 
-	public void setEurethrio(ArrayList<String> eurethrio) {
-		this.eurethrio = eurethrio;
+	public void setIndex(ArrayList<String> Index) {
+		this.Index = Index;
 	}
 
 	public ArrayList<wordItem> getWordArray() {

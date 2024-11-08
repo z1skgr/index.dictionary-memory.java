@@ -38,9 +38,9 @@ graph TD;
 The dictionary contains all the words in the texts accompanied by a number. Each word points to the index. Each page in the dictionary contains 5 pairs.
 The number specifies the page in the index that corresponds to the word. <br>
 
-The graph shows the connection between the files. In the graph, we see that the word infinite is in the file a.txt in position 2bytes from the beginning of the file.
+The graph shows the connection between the files. In the graph, we see that the word infinite is in the file `a.txt` in position 2bytes from the beginning of the file.
 
-The index is a file whose page (128 bytes) stores pairs of the format __(filename – bytes, locations from the beginning of the text)__. Each page in the index contains 4 pairs.
+The index is a file whose page (__128 bytes__) stores pairs of the format __(filename – bytes, locations from the beginning of the text)__. Each page in the index contains 4 pairs.
 The pages link to each other when we have redundancy in a word. <br>
 
 ```mermaid
@@ -51,6 +51,36 @@ graph TD;
 
 
 ```
+
+### Construction of the data structure in the main memory
+We find all the words by reading all the input files and construct the
+structure of the schema in the main memory.
+
+ `Dictionary` is an sorted array with all the words that exist in the texts (each word appears once).
+
+Each word is represented by a string and an integer(integer will be decide when you copy the structure to disk). Each word points to the `Index`. 
+
+In main memory, `Index` is a `list`.
+
+
+### Construction of archive structure 
+File page => __128bytes__. 
+
+Buffer in the main memory filled with `string - integer` pairs from the `Dictionary`.
+When filled, we write a new page at the end of the file. 
+Empty the buffer and we continue the same until the `Dictionary` in the file is copied.
+The `Index` is a file whose each page stores pairs of the form (`filename - positions bytes` from the beginning of the text).  If a word exists
+in the `Dictionary` then there is at least one page for it in the `Index`.
+The Index consists of pages of __128bytes__ in size.
+
+
+### Search the data structure
+1. Read the middle page of the file by bringing it into main memory (costs one disk access). 
+2. Search within the page you fetched (this does not cost a disk access). 
+    * If you find it, the function returns the contents of the location
+    * If you do not find it then read the middle page from the left or right side of the page.
+3. Each page read costs one disk access.
+
 
 ## Technologies Used
 Java Integrated Development Environment (Eclipse IDE)

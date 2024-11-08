@@ -3,6 +3,7 @@ public class wordItem {
 	private String word;
 	private String nameFile;
 	private int startByte;
+	
 	public wordItem(String word,String nameFile, int startByte)
 	{
 		this.word=word;
