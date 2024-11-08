@@ -92,6 +92,13 @@ To run this project, import project to IDE workshop.
 Project contains samples of .txt files.
 The files have to follow the format that mentioned in [General Info](#general-information).
 
+1. Clone repository
+2. In EclipseIDE
+    * File->Import->General->Projects from Folder
+    * Select repository directory
+    * Finish
+3. Ready for testing
+
 ## Acknowledgements
 - This project was created for the requirements of the lesson Data Structures.
 
